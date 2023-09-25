@@ -2,7 +2,7 @@ import openai
 import Languages
 import json
 
-with open('key.json', 'r') as config_file:
+with open('api_key.json', 'r') as config_file:
     config_data = json.load(config_file)
 
 openai.api_key = config_data["key"]
