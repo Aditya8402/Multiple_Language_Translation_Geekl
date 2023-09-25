@@ -1,7 +1,11 @@
 import openai
 import Languages
+import json
 
-openai.api_key = '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'
+with open('key.json', 'r') as config_file:
+    config_data = json.load(config_file)
+
+openai.api_key = config_data["key"]
 
 def lang_translation(messages):
     reply = openai.ChatCompletion.create(
