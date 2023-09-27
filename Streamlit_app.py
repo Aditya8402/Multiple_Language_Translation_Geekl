@@ -4,6 +4,11 @@ import Languages
 
 st.title("Translation App")
 
+# Getting the API KEY:
+api_key = st.text_input("API KEY: ", type = 'password' , key = 'password')
+
+Translation.set_key(api_key)
+
 # Language selection
 Languages.source_lang = st.selectbox("Select source language", ("English", "Spanish", "French", "German", "Hindi"))
 Languages.dest_lang = st.selectbox("Select target language", ("English", "Spanish", "French", "German", "Hindi"))
