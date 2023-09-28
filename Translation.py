@@ -42,10 +42,13 @@ other context from the user. \
 
 
 def collect_messages(prompt):
-    context.append({'role':'user', 'content':f"Translate the next sentence/paragraph from {Languages.source_lang} to {Languages.dest_lang}. {prompt}"})
-    response = lang_translation(context)
-    context.append({'role':'assistant', 'content':f"{response}"})
-    return response
+    try:
+        context.append({'role':'user', 'content':f"Translate the next sentence/paragraph from {Languages.source_lang} to {Languages.dest_lang}. {prompt}"})
+        response = lang_translation(context)
+        context.append({'role':'assistant', 'content':f"{response}"})
+        return True,response
+    except:
+        return False,f"You can continue now :) \n But give some time between requests"
 
 
 # lang_set = {"English", "Hindi", "Telugu", "Tamil", "Kannada", "Malayalam", "Bengali", "Gujrati", "Assamese", "Urdu", "Punjabi", "Marathi",
